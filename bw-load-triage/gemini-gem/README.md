@@ -4,7 +4,7 @@ Workflow Builder agents in Gemini Enterprise can only be shared inside your orga
 
 A Gem is a single agent, so this version merges the Chain Failure Analyst and the Business Update Drafter into one set of instructions. It shows what the agent does, not the multi-agent design.
 
-**Status:** question 1 tested (passed, after the format fixes below). Run the rest of the [test script](../sample-data/TESTING.md) before you share the link.
+**Status:** question 1 passed on content; the FORMAT rules were added after that test and are not yet retested. Run the rest of the [test script](../sample-data/TESTING.md) before you share the link.
 
 ## Build it
 
