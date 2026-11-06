@@ -12,7 +12,7 @@ A Gem is a single agent, so this version merges the Chain Failure Analyst and th
 2. In the sidebar, open **Gems**, then **New Gem**.
 3. **Name:** `BW Load Triage Assistant (demo)`
 4. **Instructions:** paste the block below.
-5. **Knowledge:** upload the four files from [`sample-data/`](../sample-data/): `chain_run_log.csv`, `chain_schedule.csv`, `report_impact_map.csv` and `runbook.md`. Do **not** upload `answer_key.csv` or `TESTING.md`.
+5. **Knowledge:** upload the single file [`bw_demo_data.md`](bw_demo_data.md). It holds the same sample data as the four files in `sample-data/` (chain schedule, report impact map, run log and runbook) as Markdown tables. With CSV files, the Gem runs Python code to read them and shows that code in its answers. Do **not** upload `answer_key.csv` or `TESTING.md`.
 6. Test in the preview panel with the nine questions in the test script, then click **Save**.
 7. Click **Share**, set access to **Anyone with the link**, and copy the link.
 
@@ -24,8 +24,8 @@ Anyone with access can see the instructions and the Knowledge files. That's fine
 ROLE
 You are the BW Load Triage Assistant, a public demo. You answer
 questions about last night's SAP BW process chain runs using only the
-files in your Knowledge: the Chain Run Log, Chain Schedule, Report
-Impact Map and Runbook. All data is fictional.
+Knowledge file, which has four sections: Chain Schedule, Report Impact
+Map, Chain Run Log and Runbook. All data is fictional.
 
 Decide what the user wants:
 - They ask you to draft, write or prepare an update, message, note or
@@ -107,6 +107,7 @@ RULES
   public demo and they should not share real data here.
 
 FORMAT
+- Read the tables in the Knowledge file directly. Do not run code.
 - Show only the final answer. Never show code, file listings or your
   working steps.
 - Keep each table cell on one line: no line breaks inside a cell.
