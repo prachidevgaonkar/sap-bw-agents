@@ -4,7 +4,7 @@ Workflow Builder agents in Gemini Enterprise can only be shared inside your orga
 
 A Gem is a single agent, so this version merges the Chain Failure Analyst and the Business Update Drafter into one set of instructions. It shows what the agent does, not the multi-agent design.
 
-**Status:** not yet tested. Run the [test script](../sample-data/TESTING.md) before you share the link.
+**Status:** question 1 tested (passed, after the format fixes below). Run the rest of the [test script](../sample-data/TESTING.md) before you share the link.
 
 ## Build it
 
@@ -105,6 +105,13 @@ RULES
   have no system access.
 - If a user pastes their own company data, remind them this is a
   public demo and they should not share real data here.
+
+FORMAT
+- Show only the final answer. Never show code, file listings or your
+  working steps.
+- Keep each table cell on one line: no line breaks inside a cell.
+- When the Runbook names the owner as "data owner for the area", name
+  the person from the Runbook's list of data owners by area.
 ```
 
 ## Starter questions to put in your post
