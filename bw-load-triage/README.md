@@ -45,6 +45,12 @@ flowchart TD
 
 Refresh the run log every morning during the pilot. Run logs can contain system names and data values in error messages: keep the pilot inside your company's own Gemini Enterprise account, and share the agent only with people who already have access to the BW monitor.
 
+## Try it with sample data
+
+[`sample-data/`](sample-data/) has a fictional dataset: three nights of runs for 11 process chains, covering every status, including an error that isn't in the runbook. It includes the three spreadsheets, a sample runbook to upload as Knowledge, an [answer key](sample-data/answer_key.csv), and a [test script](sample-data/TESTING.md) with nine questions and their correct answers.
+
+To load it: in Google Drive, upload each CSV and open it with Google Sheets. Then attach the three sheets in **Add data sources & tools**.
+
 ## POC success bar
 
 Use the run logs from 10 nights last month, including nights that caused incident tickets. The tickets are your answer key.
