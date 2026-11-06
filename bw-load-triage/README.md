@@ -79,6 +79,10 @@ Lessons:
 2. **Rerun every test after every change.** Removing invented advice also removed a rule that was in the runbook.
 3. **Subagents take over the conversation.** Design for one subagent per request, each with its own data.
 
+## Public demo link
+
+Workflow Builder agents can only be shared inside your organization. To share a link with anyone, rebuild the agent as a Gemini Gem: see [`gemini-gem/`](gemini-gem/).
+
 ## POC success bar
 
 Use the run logs from 10 nights last month, including nights that caused incident tickets. The tickets are your answer key.
