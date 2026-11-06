@@ -12,7 +12,7 @@ Ask these questions in the **Preview** tab and compare the answers.
 | # | Ask | A correct answer |
 | --- | --- | --- |
 | 1 | Which chains need attention from last night? | 8 chains. Failed, by number of affected reports: Daily sales load (5), Margin analysis (4), Inventory snapshot (3), Purchase orders (2), Headcount (1). Late: GL actuals load (42 minutes), Demand forecast load (still running, at least 30 minutes late). Warning: Billing documents. |
-| 2 | Why did the daily sales load fail? | Lock conflict: the object was locked by a load from the GL actuals chain. Fix: wait for that load to finish and repeat the failed step. It failed with the same error on the previous run, so escalate to Ravi Menon. |
+| 2 | Why did the daily sales load fail? | Lock conflict: the object was locked by another request (an attribute change run). Fix: wait until the other process has finished, then repeat the failed step. It failed with the same error on the previous run, so escalate to Ravi Menon. |
 | 3 | What happened with the margin analysis chain? | Activation failed with a duplicate record error. This error is **not in the runbook**, and the agent quotes the message instead of guessing a cause or fix. |
 | 4 | Why did the inventory snapshot fail? | Missing master data: no SID for material MAT-90017. Fix: run the material master data chain, then repeat. Affected: Inventory snapshot, Stock aging, Warehouse utilization. |
 | 5 | Who needs to fix the purchase orders load? | The Basis team: the RFC connection to ECCPRD100 failed. Then repeat the failed step. |

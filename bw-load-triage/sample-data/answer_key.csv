@@ -1,5 +1,5 @@
 order,chain_id,chain_description,expected_status,failed_step,likely_cause,standard_fix,owner,repeat_or_escalation,affected_reports
-1,ZPC_SD_DAILY,Daily sales load,FAILED,DTP_LOAD,Lock conflict with a load from ZPC_FI_GL,"Wait for the other load to finish, then repeat the failed step",BW support,"Same error on the previous run (Nov 2): escalate to Ravi Menon",5
+1,ZPC_SD_DAILY,Daily sales load,FAILED,DTP_LOAD,Lock conflict: object locked by another request (attribute change run),"Wait until the other process has finished, then repeat the failed step",BW support,"Same error on the previous run (Nov 2): escalate to Ravi Menon",5
 2,ZPC_CO_MARGIN,Margin analysis,FAILED,ADSO_ACTIVATE,Not in the runbook (quote: duplicate data record with same semantic key),None from the runbook,Not in the runbook,None,4
 3,ZPC_MM_STOCK,Inventory snapshot,FAILED,DTP_LOAD,Missing master data for MAT-90017,"Run the material master data chain, then repeat the failed step",BW support,None,3
 4,ZPC_PUR_PO,Purchase orders,FAILED,DTP_LOAD,Source system connection to ECCPRD100,"Ask Basis to check the connection, then repeat the failed step",Basis team,None,2

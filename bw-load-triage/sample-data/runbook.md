@@ -9,7 +9,7 @@ For this sample dataset, "last night" means the loads that ran overnight into **
 
 | Error | How to recognize it | Likely cause | Standard fix | Owner |
 | --- | --- | --- | --- | --- |
-| Lock conflict | Message contains "is locked by" | Another load was writing to the same object at the same time | Wait until the other load has finished, then repeat the failed step | BW support |
+| Lock conflict | Message contains "is locked by" | Another load or process (for example, an attribute change run) was using the same object at the same time | Wait until the other process has finished, then repeat the failed step | BW support |
 | Source system connection | Message contains "RFC connection" and "failed" | Source system unavailable or connection problem | Ask the Basis team to check the connection, then repeat the failed step | Basis team |
 | Missing master data | Message contains "No SID found" | Transaction data arrived before the master data for that value | Run the master data chain for that characteristic, then repeat the failed step | BW support |
 | Invalid characters | Message contains "invalid characters" | A source value contains characters BW does not accept | Ask the data owner for the area to correct the value in the source system, then repeat the load. Do not change the permitted characters setting. | Data owner for the area, with BW support |

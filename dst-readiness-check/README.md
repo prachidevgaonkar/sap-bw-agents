@@ -10,21 +10,24 @@ This agent does the pre-change schedule review a week ahead and drafts the chang
 
 ## Design
 
+> **Status: not yet tested.** It follows the routing pattern that passed testing for the [BW Load Triage Assistant](../bw-load-triage/#test-results).
+
 ```mermaid
 flowchart TD
-    U["Support asks: What's at risk for the next time change?"] --> M["DST Readiness Checker<br/>(main agent)"]
-    M <-->|"schedules out, risks back"| C["Schedule Risk Checker<br/>skipped or repeated hour, spans, deltas, time zones"]
-    M --> T["Checklist: items to act on before,<br/>checks to run after"]
-    M -->|"if asked for a notice"| D["Change Notice Drafter<br/>team notice + business notice, never sends"]
+    U["Support team asks a question"] --> M["DST Readiness Checker<br/>(main agent: routes only)"]
+    M -->|"what's at risk, which chains, which deltas"| C["Schedule Risk Checker<br/>answers directly: checklist + summary line"]
+    M -->|"draft a notice"| D["Change Notice Drafter<br/>answers directly: team and business notices, never sends"]
     classDef main fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
     class M main
 ```
 
 | Agent | Role |
 | --- | --- |
-| [DST Readiness Checker](main-agent.md) | Finds the next change, gets the risks, builds the checklist |
-| [Schedule Risk Checker](subagents/1-schedule-risk-checker.md) | Checks each chain, job and delta load against the change |
-| [Change Notice Drafter](subagents/2-change-notice-drafter.md) | Drafts the notice for the BW team and for business users |
+| [DST Readiness Checker](main-agent.md) | Routes each request to the right subagent |
+| [Schedule Risk Checker](subagents/1-schedule-risk-checker.md) | Finds the next change, checks each chain, job and delta, answers with a checklist |
+| [Change Notice Drafter](subagents/2-change-notice-drafter.md) | Drafts the notices from its own copy of the data |
+
+Both subagents need the data files in their own **Knowledge**, because in Workflow Builder a subagent takes over the conversation and answers directly.
 
 ## Questions it answers
 
@@ -38,10 +41,10 @@ flowchart TD
 
 | Data | Columns | Typical source | Add as |
 | --- | --- | --- | --- |
-| Chain and job schedule | Chain or job ID, description, start time, typical duration, frequency, time zone | BW scheduling documentation or job overview export | Data source (Sheet) |
-| Delta loads | DataSource, source system, delta method, whether its timestamp is local time or UTC, safety interval | BW documentation | Data source (Sheet) |
-| Source systems | System, time zone, region | Landscape documentation | Data source (Sheet) |
-| Time change calendar and team rules | Upcoming change dates by region, the affected hour, standard actions (hold, reschedule, verify after) | Your BW team | Knowledge (doc) |
+| Chain and job schedule | Chain or job ID, description, start time, typical duration, frequency, time zone | BW scheduling documentation or job overview export | Knowledge file (CSV) |
+| Delta loads | DataSource, source system, delta method, whether its timestamp is local time or UTC, safety interval | BW documentation | Knowledge file (CSV) |
+| Source systems | System, time zone, region | Landscape documentation | Knowledge file (CSV) |
+| Time change calendar and team rules | Upcoming change dates by region, the affected hour, standard actions (hold, reschedule, verify after) | Your BW team | Knowledge file |
 
 The next changes are March 14, 2027 in the US and March 28, 2027 in the EU. Add the dates for every region your landscape covers. Check your SAP release's own guidance on time changes when writing the team rules.
 

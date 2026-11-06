@@ -13,27 +13,30 @@ Each agent is designed as a one-week proof of concept: build it without code in 
 
 ```mermaid
 flowchart LR
-    Q["User question"] --> M["Main agent<br/>sets the scope,<br/>assigns ONE status per item"]
-    M <--> A["Checker subagent"]
-    M --> S["Status + evidence<br/>+ owner + standard action"]
-    S --> D["Drafter subagent<br/>drafts the message,<br/>never sends"]
+    Q["User question"] --> M["Main agent<br/>routes only"]
+    M -->|"analysis"| A["Checker subagent<br/>own data, answers directly"]
+    M -->|"draft"| D["Drafter subagent<br/>own data, answers directly,<br/>never sends"]
 ```
 
+- **The main agent only routes.** In Workflow Builder, a subagent takes over the conversation and answers the user directly; it doesn't report back. So each request goes to one subagent that can answer it fully, with its own copy of the data.
 - **One status per item,** from a short fixed list, so results can be scored against an answer key.
 - **Evidence for every finding,** with the source row.
 - **No guessing.** Unknown errors are reported as "not in the runbook"; missing data as "needs information".
 - **Read-only.** The agents diagnose and draft. People restart, reschedule and send.
 
+The BW Load Triage Assistant was tested end to end: see its [test results](bw-load-triage/#test-results).
+
 ## How to build one in Workflow Builder
 
-1. In the Gemini Enterprise web app, click **+ Create agent**, then **Chat agent**, then **Proceed to builder**.
-2. Click the **My Agent** node and paste the name, description and instructions from the agent's `main-agent.md`. Choose a **Model**.
-3. Click **Add data sources & tools** to attach the data listed in the agent's README, as Google Sheets in a shared drive your admin has connected.
-4. Under **Knowledge**, click **Add files** to upload the runbook or team rules.
-5. On the **Flow** tab, hover over the main agent, click **Add subagent**, and paste each file from `subagents/`.
-6. Test in **Preview**, then click **Create** and share with a small pilot group.
+Steps as tested in Gemini Enterprise, Business edition, November 2026:
 
-Labels follow Google's documentation as of October 2026. Your admin must turn on Workflow Builder for your web app. There is no SAP connector for Workflow Builder in Google's recent release notes, so these designs use spreadsheet exports, which is enough for a POC.
+1. In the left sidebar, click **+ New agent**, then **Build manually**.
+2. Click the **My Agent** node and paste the name, description and instructions from the agent's `main-agent.md`. Under **Connectors**, remove **Google Search**.
+3. Click the **+** on the bottom edge of the main agent node to add a subagent. Paste its file from `subagents/`, upload the data files to its **Knowledge**, and remove Google Search. Repeat from the main agent node for the second subagent.
+4. Test in **Preview**, starting a new chat for each question. **Show thinking** reveals which subagent took the request.
+5. Click **Create**.
+
+Download the raw CSV files (or clone the repo). Saving the GitHub web page gives you an HTML file, not the data. There is no SAP connector for Workflow Builder in Google's recent release notes, so these designs use exports, which is enough for a POC.
 
 ## Before you use real data
 
