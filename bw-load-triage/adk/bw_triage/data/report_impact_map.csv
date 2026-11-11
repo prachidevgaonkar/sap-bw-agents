@@ -1,0 +1,24 @@
+chain_id,report_or_dashboard,business_owner,user_group
+ZPC_SD_DAILY,Daily sales dashboard,Maria Lopez (Sales Ops),Sales users
+ZPC_SD_DAILY,Sales by region,Maria Lopez (Sales Ops),Sales users
+ZPC_SD_DAILY,Sales vs. target,Maria Lopez (Sales Ops),Sales users
+ZPC_SD_DAILY,Weekly sales email,Maria Lopez (Sales Ops),Sales users
+ZPC_SD_DAILY,Executive KPI cockpit,Maria Lopez (Sales Ops),Sales users
+ZPC_CO_MARGIN,Margin analysis,Tom Becker (Controlling),Controlling users
+ZPC_CO_MARGIN,Product profitability,Tom Becker (Controlling),Controlling users
+ZPC_CO_MARGIN,Customer profitability,Tom Becker (Controlling),Controlling users
+ZPC_CO_MARGIN,Executive KPI cockpit,Tom Becker (Controlling),Controlling users
+ZPC_MM_STOCK,Inventory snapshot,Aisha Khan (Supply Chain),Inventory users
+ZPC_MM_STOCK,Stock aging,Aisha Khan (Supply Chain),Inventory users
+ZPC_MM_STOCK,Warehouse utilization,Aisha Khan (Supply Chain),Inventory users
+ZPC_PUR_PO,Open purchase orders,Aisha Khan (Supply Chain),Purchasing users
+ZPC_PUR_PO,Supplier performance,Aisha Khan (Supply Chain),Purchasing users
+ZPC_HR_HEADCOUNT,Monthly headcount,Grace Liu (HR),HR users
+ZPC_FI_GL,P&L statement,Tom Becker (Controlling),Finance users
+ZPC_FI_GL,GL trial balance,Tom Becker (Controlling),Finance users
+ZPC_FI_GL,Executive KPI cockpit,Tom Becker (Controlling),Finance users
+ZPC_SCM_FCST,Demand forecast accuracy,Aisha Khan (Supply Chain),Planning users
+ZPC_SD_BILLING,Billing overview,Maria Lopez (Sales Ops),Sales users
+ZPC_SD_BILLING,Revenue by product,Maria Lopez (Sales Ops),Sales users
+ZPC_SD_ORDERS,Order backlog,Maria Lopez (Sales Ops),Sales users
+ZPC_FI_AR,AR aging,Tom Becker (Controlling),Finance users

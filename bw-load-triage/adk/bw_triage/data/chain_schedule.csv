@@ -1,0 +1,12 @@
+chain_id,chain_description,area,expected_finish_time
+ZPC_MD_MATERIAL,Material master data,Master data,01:30
+ZPC_SD_DAILY,Daily sales load,Sales,05:00
+ZPC_SD_ORDERS,Sales orders,Sales,05:30
+ZPC_SD_BILLING,Billing documents,Sales,05:30
+ZPC_FI_GL,GL actuals load,Finance,06:00
+ZPC_FI_AR,Open receivables,Finance,06:00
+ZPC_CO_MARGIN,Margin analysis,Controlling,06:15
+ZPC_MM_STOCK,Inventory snapshot,Inventory,05:45
+ZPC_PUR_PO,Purchase orders,Purchasing,05:45
+ZPC_HR_HEADCOUNT,Headcount,HR,06:00
+ZPC_SCM_FCST,Demand forecast load,Planning,06:30

@@ -83,6 +83,10 @@ Lessons:
 
 Workflow Builder agents can only be shared inside your organization. To share a link with anyone, rebuild the agent as a Gemini Gem: see [`gemini-gem/`](gemini-gem/).
 
+## Code version (ADK)
+
+For a public demo link, exact counts computed in Python, and a path to live BW data, see the [ADK version](adk/).
+
 ## POC success bar
 
 Use the run logs from 10 nights last month, including nights that caused incident tickets. The tickets are your answer key.
